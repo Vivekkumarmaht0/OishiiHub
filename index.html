@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OshiiHub - Real-Time Order System</title>
+    <link rel="icon" href="images/iconLogo.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/oshiihub.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div id="oshiihub-app">
+        <!-- Role Selection Screen -->
+        <div id="role-selector" class="view-active">
+            <div class="role-card">
+                <img src="images/Foods/Reman.png" alt="OshiiHub Logo" class="brand-logo">
+                <h1>Welcome to OshiiHub</h1>
+                <p>Select your role to continue</p>
+                
+                <!-- Main Role Buttons -->
+                <div id="role-initial-buttons" class="role-buttons">
+                    <button class="btn btn-secondary" onclick="app.showAdminLogin()">Staff / Chef</button>
+                </div>
+                
+                <!-- Admin Login Form (Hidden by default) -->
+                <div id="admin-login-form" class="hidden" style="margin: 2rem 0; text-align: left;">
+                    <h3 style="margin-bottom: 1rem; text-align: center;">Staff Authentication</h3>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="admin-pin" style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Enter Admin PIN</label>
+                        <input type="password" id="admin-pin" class="full-width" style="padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 1.2rem; text-align: center;" placeholder="****">
+                    </div>
+                    <p id="admin-error-msg" style="color: var(--primary); font-size: 0.85rem; text-align: center; margin-bottom: 1rem;" class="hidden">Invalid PIN. Please try again.</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-secondary full-width" onclick="app.hideAdminLogin()">Cancel</button>
+                        <button class="btn btn-primary full-width" onclick="app.verifyAdminLogin()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer View -->
+        <div id="customer-view" class="view-hidden">
+            <header class="app-header">
+                <div class="brand">
+                    <img src="images/Foods/Reman.png" alt="Logo">
+                    <h2>OshiiHub Menu</h2>
+                </div>
+                <div class="table-input">
+                    <label for="table-num">Table #</label>
+                    <input type="number" id="table-num" min="1" max="50" value="1">
+                </div>
+            </header>
+            
+            <main class="menu-container">
+                <a href="homePage.html" style="text-decoration: none; margin-bottom: 10px;"><button class="btn btn-secondary sm" style="background-color: #2f3542; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;  margin-bottom: 15px;">&larr; Back to Home</button></a>
+                <div class="menu-categories" id="menu-categories">
+                    <!-- Categories injected by JS -->
+                </div>
+                <div class="menu-items" id="menu-items">
+                    <!-- Items injected by JS -->
+                </div>
+            </main>
+
+            <!-- Order Queue / Cart panel -->
+            <aside class="cart-panel">
+                <h3>Your Order <span id="cart-count">(0)</span></h3>
+                <div id="cart-items" class="cart-items-list">
+                    <!-- Cart items injected by JS -->
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">₹0</span>
+                </div>
+                <button class="btn btn-primary full-width" id="btn-submit-order" onclick="app.submitOrder()" disabled>Place Order</button>
+            </aside>
+
+            <!-- Customer Order Status Banner -->
+            <div id="customer-status-banner" class="status-banner hidden">
+                <h4>Active Order: <span id="banner-order-id">#---</span></h4>
+                <p>Status: <strong id="banner-order-status">Pending</strong></p>
+                <p class="small-text" id="banner-order-time"></p>
+            </div>
+        </div>
+
+        <!-- Admin View -->
+        <div id="admin-view" class="view-hidden">
+            <header class="app-header admin-header">
+                <div class="brand">
+                    <h2>OshiiHub Kitchen Dashboard</h2>
+                    <span class="live-indicator">LIVE</span>
+                </div>
+                <div class="admin-controls">
+                    <a href="homePage.html" style="text-decoration:none;"><button class="btn btn-secondary sm" style="cursor:pointer;">Exit Dashboard</button></a>
+                </div>
+            </header>
+            
+            <div class="admin-filters">
+                <input type="text" id="filter-keyword" placeholder="Search Order ID...">
+                <select id="filter-status">
+                    <option value="all">All Statuses</option>
+                    <option value="received">Received</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="ready">Ready</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <button class="btn btn-secondary sm" onclick="app.renderAdminDashboard()">Apply</button>
+            </div>
+
+            <main class="dashboard-grid">
+                <!-- Orders injected by JS -->
+                <div id="admin-orders" class="admin-orders-list"></div>
+            </main>
+        </div>
+
+        <!-- Item Modal -->
+        <div id="item-modal" class="modal-overlay hidden">
+            <div class="modal">
+                <button class="modal-close" onclick="app.closeModal()">&times;</button>
+                <div class="modal-header">
+                    <img id="modal-img" src="" alt="Item Image">
+                    <h3 id="modal-title">Item Name</h3>
+                    <p id="modal-desc">Description</p>
+                    <p class="price" id="modal-price">₹0</p>
+                </div>
+                <div class="modal-body">
+                    <div class="modifiers-section">
+                        <h4>Modifiers</h4>
+                        <label><input type="checkbox" name="modifier" value="Extra Chashu (+₹50)"> Extra Chashu (+₹50)</label>
+                        <label><input type="checkbox" name="modifier" value="Spicy (+₹20)"> Spicy (+₹20)</label>
+                        <label><input type="checkbox" name="modifier" value="No Onions"> No Onions</label>
+                        <label><input type="checkbox" name="modifier" value="Extra Noodles (+₹40)"> Extra Noodles (+₹40)</label>
+                    </div>
+                    <div class="quantity-section">
+                        <h4>Quantity</h4>
+                        <div class="qty-controls">
+                            <button onclick="app.updateModalQty(-1)">-</button>
+                            <span id="modal-qty">1</span>
+                            <button onclick="app.updateModalQty(1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary full-width" onclick="app.addToCart()">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data dependencies -->
+    <script src="data/foods.js"></script>
+    <script src="scripts/oshiihub.js"></script>
+</body>
+</html>

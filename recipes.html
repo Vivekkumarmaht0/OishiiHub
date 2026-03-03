@@ -1,11 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OshiiHub - Recipes</title>
+    <link rel="icon" href="images/iconLogo.png" type="image/png" />
+
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles/homePage.css" />
+    <link rel="stylesheet" href="styles/recipes.css" />
+
+    <!-- Icons Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
 </head>
 <body>
-    
+    <!-- navbar section -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="homePage.html"
+            ><img src="images/logo.png" alt="OishiiHub Logo" height="150"
+            /></a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="homePage.html#home">Home</a></li>
+            <li><a href="homePage.html#menu">Menu</a></li>
+            <li><a href="#" style="color: #ff4757; font-weight: bold;">Recipes</a></li>
+            <li><a href="homePage.html#about">About</a></li>
+            <li><a href="homePage.html#contact">Contact Us</a></li>
+        </ul>
+
+        <div class="btn">
+            <a href="index.html?role=customer" style="text-decoration:none;"><button class="login-btn" style="background-color: #ff4757; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-right: 10px;">Order Now</button></a>
+            <a href="index.html?role=admin" style="text-decoration:none;"><button class="login-btn">Admin Panel</button></a>
+        </div>
+    </nav>  
+
+    <!-- Recipe Hero/Search Section -->
+    <section class="recipe-hero">
+        <div class="recipe-hero-content">
+            <h1>Discover Delicious Recipes</h1>
+            <p>Search for authentic meals and recreate them at home!</p>
+            <div class="search-container">
+                <input type="text" id="recipe-search-input" placeholder="Search for recipes (e.g. Arrabiata)...">
+                <button id="recipe-search-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Grid Section -->
+    <section class="recipe-grid-container">
+        <h2 class="section-heading" id="recipe-results-heading">Featured Recipes</h2>
+        <div id="recipe-grid" class="recipe-grid">
+            <!-- Recipes will be injected here via JS -->
+            <div class="loading-state" id="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Details Modal -->
+    <div id="recipe-modal" class="recipe-modal-overlay hidden">
+        <div class="recipe-modal">
+            <button class="recipe-modal-close" onclick="closeRecipeModal()">&times;</button>
+            <div class="recipe-modal-body" id="recipe-modal-content">
+                <!-- Modal content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <!-- Logo and Description Section -->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <h2>OishiiHub</h2>
+                    <p>Where Every Bite is Oishii</p>
+                </div>
+                <p class="footer-desc">At OishiiHub, our mission is to share authentic Japanese cuisine and culture through carefully curated food items, recipes, and stories that connect people to the heart of India.</p>
+            </div>
+
+            <!-- Separator Line -->
+            <div class="footer-divider"></div>
+
+            <!-- Links, Contact, Follow Us Section -->
+            <div class="footer-middle">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@oishiihub.com</p>
+                    <p><i class="fas fa-phone"></i>1800 254 8546</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 OishiiHub. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/recipes.js"></script>
 </body>
 </html>

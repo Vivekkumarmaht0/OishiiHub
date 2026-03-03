@@ -34,14 +34,14 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#menu">Menu</a></li>
-            <li><a href="#recipe">Recipes</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
 
         <div class="btn">
-            <i class="fa-solid fa-basket-shopping cart-icon"></i>
-            <a href="login.html"><button class="login-btn">Login</button></a>
+            <a href="index.html?role=customer" style="text-decoration:none;"><button class="login-btn" style="background-color: #ff4757; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-right: 10px;">Order Now</button></a>
+            <a href="index.html?role=admin" style="text-decoration:none;"><button class="login-btn">Admin Panel</button></a>
         </div>
     </nav>  
 
@@ -54,8 +54,7 @@
             <h1>Welcome to OishiiHub</h1>
             <h2>Authentic Japanese Ramen Crafted with Tradition</h2>
             <div class="hero-btns">
-                <button class="btn-1">Explore Menu</button>
-                <button class="btn-2">View Recipes</button>
+                <a href="index.html?role=customer" style="text-decoration:none;"><button class="btn-1">Order Now</button></a>
             </div>
         </div>
       </div>
@@ -67,8 +66,7 @@
             <h1>Welcome to OishiiHub</h1>
             <h2>Authentic Japanese Ramen Crafted with Tradition</h2>
             <div class="hero-btns">
-                <button class="btn-1">Explore More</button>
-                <button class="btn-2">View Recipes</button>
+                <a href="index.html?role=customer" style="text-decoration:none;"><button class="btn-1">Order Now</button></a>
             </div>
         </div>
       </div>
@@ -80,8 +78,7 @@
             <h1>Welcome to OishiiHub</h1>
             <h2>Authentic Japanese Ramen Crafted with Tradition</h2>
             <div class="hero-btns">
-                <button class="btn-1">Explore More</button>
-                <button class="btn-2">View Recipes</button>
+                <a href="index.html?role=customer" style="text-decoration:none;"><button class="btn-1">Order Now</button></a>
             </div>
         </div>
       </div>
@@ -93,8 +90,7 @@
             <h1>Welcome to OishiiHub</h1>
             <h2>Authentic Japanese Ramen Crafted with Tradition</h2>
             <div class="hero-btns">
-                <button class="btn-1">Explore More</button>
-                <button class="btn-2">View Recipes</button>
+                <a href="index.html?role=customer" style="text-decoration:none;"><button class="btn-1">Order Now</button></a>
             </div>
         </div>
       </div>
@@ -114,7 +110,7 @@
                     <h3>Ramen</h3>
                     <div class="menu-btn">
                         <a href="ramen.html"><button class="menu-item-btn">Explore</button></a>
-                        <a class="menu-item-spn" href="ramenRecipe.html"><span>Recipe &RightArrow;</span></a>
+                        <a class="menu-item-spn" style="text-decoration: none;" href="recipes.html"><span>Recipe &RightArrow;</span></a>
                     </div>
                 </div>
             </div>
@@ -126,7 +122,7 @@
                 <div class="menu-item-box">
                     <h3>Sushi</h3>
                     <a href="sushi.html"><button class="menu-item-btn">Explore</button></a>
-                    <span class="menu-item-spn">Recipe &RightArrow;</span>
+                    <a href="recipes.html" style="text-decoration: none;"><span class="menu-item-spn">Recipe &RightArrow;</span></a>
                 </div>
             </div>
 
@@ -137,7 +133,7 @@
                 <div class="menu-item-box">
                     <h3>Tonkatsu</h3>
                     <button class="menu-item-btn">Explore</button>
-                    <span class="menu-item-spn">Recipe &RightArrow;</span>
+                    <a href="recipes.html" style="text-decoration: none;"><span class="menu-item-spn">Recipe &RightArrow;</span></a>
                 </div>
             </div>
 
@@ -148,14 +144,127 @@
                 <div class="menu-item-box">
                     <h3>Onigiri</h3>
                     <button class="menu-item-btn">Explore</button>
-                    <span class="menu-item-spn">Recipe &RightArrow;</span>
+                    <a href="recipes.html" style="text-decoration: none;"><span class="menu-item-spn">Recipe &RightArrow;</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Section -->
+    <section id="popular" class="popular">
+        <h2 class="section-heading">Popular Favorites</h2>
+        <div class="popular-grid">
+            <!-- Item 1 -->
+            <div class="popular-card">
+                <img src="images/menu/Ramen/Yokohama.jpg" alt="Yokohama Ramen">
+                <div class="popular-info">
+                    <h3>Yokohama Ramen</h3>
+                    <p>Chashu pork, chopped seaweed, leeks, and spinach.</p>
+                    <div class="popular-footer">
+                        <span class="price">₹450</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="popular-card">
+                <img src="images/menu/Ramen/Miso ramen.png" alt="Miso Ramen">
+                <div class="popular-info">
+                    <h3>Miso Ramen</h3>
+                    <p>Bean sprouts, chopped pork, garlic, sweet corn.</p>
+                    <div class="popular-footer">
+                        <span class="price">₹490</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="popular-card">
+                <img src="images/menu/Ramen/Tonkotsu ramen.png" alt="Tonkotsu Ramen">
+                <div class="popular-info">
+                    <h3>Tonkotsu Ramen</h3>
+                    <p>Rich pork broth, noodles, soft-yolk eggs, and tender pork belly.</p>
+                    <div class="popular-footer">
+                        <span class="price">₹500</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order -->
+    <section id="how-to-order" class="how-to-order">
+        <h2 class="section-heading">How to Order</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-utensils"></i></div>
+                <h3>1. Browse Menu</h3>
+                <p>Explore our authentic Japanese dishes and find your favorites.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+                <h3>2. Customize</h3>
+                <p>Add your preferred modifiers and extras to make it perfect.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>3. Place Order</h3>
+                <p>Submit and track your meal in real-time straight to your table.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <h2 class="section-heading">Why Choose Us?</h2>
+        <div class="features-wrapper">
+            <div class="feature-box">
+                <i class="fas fa-bolt"></i>
+                <h3>Real-time Updates</h3>
+                <p>Track your order status instantly from our kitchen directly to your table.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-leaf"></i>
+                <h3>Fresh Ingredients</h3>
+                <p>We source only the highest quality, authentic ingredients for true flavor.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-fire-burner"></i>
+                <h3>Expert Chefs</h3>
+                <p>Prepared by masters trained in the traditional art of Japanese cuisine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section" style="padding: 4rem 10%; background-color: white; display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+        <div class="about-image" style="flex: 1; min-width: 300px;">
+            <img src="images/Foods/sushi.png" alt="About OishiiHub" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+        <div class="about-content" style="flex: 1; min-width: 300px;">
+            <h2 class="section-heading" style="text-align: left; margin-bottom: 1.5rem; font-size: 2.5rem; color: #2f3542;">Our Story</h2>
+            <p style="font-size: 1.1rem; color: #57606f; line-height: 1.8; margin-bottom: 1.5rem;">
+                At OishiiHub, we believe that food is more than just sustenance—it's an experience that brings people together. Born from a deep passion for authentic Japanese culinary arts, we set out to create a vibrant space where tradition seamlessly blends with modern convenience.
+            </p>
+            <p style="font-size: 1.1rem; color: #57606f; line-height: 1.8; margin-bottom: 2rem;">
+                Our expert chefs dedicate themselves to sourcing the finest, freshest ingredients, meticulously preparing every dish from our soul-warming ramen bowls to our delicate, handcrafted sushi. We invite you to explore the rich tapestry of flavors we offer, and experience firsthand why, at OishiiHub, every bite truly is <i>Oishii</i> (delicious).
+            </p>
+            <div class="about-features" style="display: flex; gap: 2rem;">
+                <div>
+                    <h3 style="color: #ff4757; font-size: 2rem; margin-bottom: 0.5rem;">50+</h3>
+                    <p style="color: #747d8c; font-weight: 500;">Authentic Dishes</p>
+                </div>
+                <div>
+                    <h3 style="color: #ff4757; font-size: 2rem; margin-bottom: 0.5rem;">15+</h3>
+                    <p style="color: #747d8c; font-weight: 500;">Expert Chefs</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- footer section -->
-    <footer>
+    <footer id="contact">
         <div class="footer-section">
             <!-- Logo and Description Section -->
             <div class="footer-top">
@@ -176,7 +285,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#menu">Menu</a></li>
-                        <li><a href="#recipe">Recipes</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
                         <li><a href="#about">About Us</a></li>
                     </ul>
                 </div>
