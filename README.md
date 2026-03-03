@@ -2,7 +2,7 @@
 
 Welcome to **OishiiHub** - "Where Every Bite is Oishii". A comprehensive web application for an authentic Japanese dining experience, featuring an interactive menu, a dual-role ordering system (Guest/Customer and Staff/Chef), and a dynamic recipe discovery page.
 
-![OishiiHub Preview](images/Foods/Reman.png)
+![OishiiHub Preview](images/OishiiHub.png)
 
 ## 🌟 Features
 
